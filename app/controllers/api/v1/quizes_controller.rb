@@ -25,4 +25,13 @@ class Api::V1::QuizesController < ApplicationController
             render json: {errors: quize.errors.full_messages}
         end
     end
+
+    def destroy
+      quize = Quize.find(params[:id])
+      if quize.destroy
+        render json: {status: 200}
+      else
+        render json: {errors: quize.erros.full_messages}
+      end
+    end
 end

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :quizes, only: :show do
+      resources :quizes, only: [:destroy, :show] do
         member do
           post :questions, to: 'questions#create'
         end

@@ -1,17 +1,11 @@
 user1 = User.create(user_name: "Admin User", email: "admin@test.com", password: "password", password_confirmation: "password")
 
 quize1 = user1.quizes.create(title: "四則演算")
-quize2 = user1.quizes.create(title: "四則演算（２）")
 
 question1 = quize1.questions.create(content: "1+1=")
 question2 = quize1.questions.create(content: "1+2=")
 question3 = quize1.questions.create(content: "1+3=")
 question4 = quize1.questions.create(content: "1+4=")
-
-question5 = quize2.questions.create(content: "4*5=")
-question6 = quize2.questions.create(content: "3-2=")
-question7 = quize2.questions.create(content: "5+3=")
-question8 = quize2.questions.create(content: "10/2=")
 
 choice1_1 = question1.choices.create(content: "2", is_answer: true)
 choice1_2 = question1.choices.create(content: "3", is_answer: false)
@@ -32,8 +26,3 @@ choice4_1 = question4.choices.create(content: "5", is_answer: true)
 choice4_2 = question4.choices.create(content: "12", is_answer: false)
 choice4_3 = question4.choices.create(content: "13", is_answer: false)
 choice4_4 = question4.choices.create(content: "14", is_answer: false)
-
-choice5_1 = question5.choices.create(content: "20", is_answer: true)
-choice5_2 = question5.choices.create(content: "3", is_answer: false)
-choice5_3 = question5.choices.create(content: "4", is_answer: false)
-choice5_4 = question5.choices.create(content: "5", is_answer: false)
