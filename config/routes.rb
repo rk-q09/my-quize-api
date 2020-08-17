@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       delete :logout, to: "sessions#logout"
       get :logged_in, to: "sessions#logged_in"
 
-      resources :users, only: [:index, :shows] do
+      resources :users, only: [:index, :show] do
         member do
           get :quizes, to: 'quizes#index'
           post :quizes, to: 'quizes#create'
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
 
       resources :quizes, only: [:destroy, :show] do
+        get '/get_user_id', to: 'quizes#get_user_id'
         member do
           post :questions, to: 'questions#create'
         end

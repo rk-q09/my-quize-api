@@ -31,7 +31,14 @@ class Api::V1::QuizesController < ApplicationController
       if quize.destroy
         render json: {status: 200}
       else
-        render json: {errors: quize.erros.full_messages}
+        render json: {errors: quize.erros.full}
       end
+    end
+
+    def get_user_id
+      quize = Quize.find_by(id: params[:quize_id])
+      render json: {
+        user_id: quize.user.id
+      }
     end
 end

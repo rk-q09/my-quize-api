@@ -48,3 +48,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '~> 3.1.7'
 gem "rack-cors", :require => 'rack/cors'
 gem 'active_model_serializers'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
