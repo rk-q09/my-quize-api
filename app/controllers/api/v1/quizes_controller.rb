@@ -41,4 +41,9 @@ class Api::V1::QuizesController < ApplicationController
         user_id: quize.user.id
       }
     end
+
+    def new_quizes
+      quizes = Quize.order(created_at: :desc).limit(3)
+      render json: quizes, include: []
+    end
 end

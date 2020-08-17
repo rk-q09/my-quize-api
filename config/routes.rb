@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :registrations, only: [:create]
       delete :logout, to: "sessions#logout"
       get :logged_in, to: "sessions#logged_in"
+      get :new_quizes, to: 'quizes#new_quizes'
 
       resources :users, only: [:index, :show] do
         member do
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
       end
 
       resources :quizes, only: [:destroy, :show] do
-        get '/get_user_id', to: 'quizes#get_user_id'
+        get :get_user_id, to: 'quizes#get_user_id'
         member do
           post :questions, to: 'questions#create'
         end
