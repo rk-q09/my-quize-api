@@ -13,11 +13,12 @@ class Api::V1::QuizesController < ApplicationController
 
     def create
         user = User.find(params[:id])
-        quize = user.quizes.create!(
+        quize = user.quizes.new(
           title: params['title']
         )
-        if quize
+        if quize.save
             render json: {
+              status: :created,
               id: quize.id,
               title: quize.title
             }
@@ -31,7 +32,7 @@ class Api::V1::QuizesController < ApplicationController
       if quize.destroy
         render json: {status: 200}
       else
-        render json: {errors: quize.erros.full}
+        render json: {errors: quize.errors.full_messages}
       end
     end
 
