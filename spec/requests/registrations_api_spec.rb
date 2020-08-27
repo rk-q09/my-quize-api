@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "RegistrationsApis", type: :request do
+RSpec.describe "RegistrationsApi", type: :request do
   describe 'POST /api/v1/registration' do
     let(:user) { build(:user) }
 
